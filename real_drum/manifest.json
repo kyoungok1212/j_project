@@ -1,0 +1,1304 @@
+{
+  "version": 1,
+  "source": "real_drum",
+  "tracks": {
+    "kick": [
+      {
+        "value": "/real-drum/kick/01_Kik_Cls_RR5.wav",
+        "label": "01_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/02_Kik_Cls_RR5.wav",
+        "label": "02_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/03_Kik_Cls_RR5.wav",
+        "label": "03_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/04_Kik_Cls_RR5.wav",
+        "label": "04_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/05_Kik_Cls_RR5.wav",
+        "label": "05_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/06_Kik_Cls_RR5.wav",
+        "label": "06_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/07_Kik_Cls_RR5.wav",
+        "label": "07_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/08_Kik_Cls_RR5.wav",
+        "label": "08_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/09_Kik_Cls_RR5.wav",
+        "label": "09_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/10_Kik_Cls_RR5.wav",
+        "label": "10_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/11_Kik_Cls_RR5.wav",
+        "label": "11_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/12_Kik_Cls_RR5.wav",
+        "label": "12_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/13_Kik_Cls_RR5.wav",
+        "label": "13_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/14_Kik_Cls_RR5.wav",
+        "label": "14_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/15_Kik_Cls_RR5.wav",
+        "label": "15_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/16_Kik_Cls_RR5.wav",
+        "label": "16_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/17_Kik_Cls_RR5.wav",
+        "label": "17_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/18_Kik_Cls_RR5.wav",
+        "label": "18_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/19_Kik_Cls_RR5.wav",
+        "label": "19_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/20_Kik_Cls_RR5.wav",
+        "label": "20_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/21_Kik_Cls_RR5.wav",
+        "label": "21_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/22_Kik_Cls_RR5.wav",
+        "label": "22_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/23_Kik_Cls_RR5.wav",
+        "label": "23_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/24_Kik_Cls_RR5.wav",
+        "label": "24_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/25_Kik_Cls_RR5.wav",
+        "label": "25_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/26_Kik_Cls_RR5.wav",
+        "label": "26_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/27_Kik_Cls_RR5.wav",
+        "label": "27_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/28_Kik_Cls_RR5.wav",
+        "label": "28_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/29_Kik_Cls_RR5.wav",
+        "label": "29_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/30_Kik_Cls_RR5.wav",
+        "label": "30_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/31_Kik_Cls_RR5.wav",
+        "label": "31_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/32_Kik_Cls_RR5.wav",
+        "label": "32_Kik_Cls_RR5"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F001.wav",
+        "label": "real-kick-F001"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F003.wav",
+        "label": "real-kick-F003"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F004.wav",
+        "label": "real-kick-F004"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F005.wav",
+        "label": "real-kick-F005"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F009.wav",
+        "label": "real-kick-F009"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F011.wav",
+        "label": "real-kick-F011"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F012.wav",
+        "label": "real-kick-F012"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F024.wav",
+        "label": "real-kick-F024"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F033.wav",
+        "label": "real-kick-F033"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F036.wav",
+        "label": "real-kick-F036"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F039.wav",
+        "label": "real-kick-F039"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F045.wav",
+        "label": "real-kick-F045"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F047.wav",
+        "label": "real-kick-F047"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F049.wav",
+        "label": "real-kick-F049"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F050.wav",
+        "label": "real-kick-F050"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F052.wav",
+        "label": "real-kick-F052"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F053.wav",
+        "label": "real-kick-F053"
+      },
+      {
+        "value": "/real-drum/kick/real-kick-F058.wav",
+        "label": "real-kick-F058"
+      }
+    ],
+    "snare": [
+      {
+        "value": "/real-drum/snare/01_Snr65NR_Ster_HB_RR1.wav",
+        "label": "01_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/02_Snr65NR_Ster_HB_RR1.wav",
+        "label": "02_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/03_Snr65NR_Ster_HB_RR1.wav",
+        "label": "03_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/04_Snr65NR_Ster_HB_RR1.wav",
+        "label": "04_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/05_Snr65NR_Ster_HB_RR1.wav",
+        "label": "05_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/06_Snr65NR_Ster_HB_RR1.wav",
+        "label": "06_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/07_Snr65NR_Ster_HB_RR1.wav",
+        "label": "07_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/08_Snr65NR_Ster_HB_RR1.wav",
+        "label": "08_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/09_Snr65NR_Ster_HB_RR1.wav",
+        "label": "09_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/10_Snr65NR_Ster_HB_RR1.wav",
+        "label": "10_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/11_Snr65NR_Ster_HB_RR1.wav",
+        "label": "11_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/12_Snr65NR_Ster_HB_RR1.wav",
+        "label": "12_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/13_Snr65NR_Ster_HB_RR1.wav",
+        "label": "13_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/14_Snr65NR_Ster_HB_RR1.wav",
+        "label": "14_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/15_Snr65NR_Ster_HB_RR1.wav",
+        "label": "15_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/16_Snr65NR_Ster_HB_RR1.wav",
+        "label": "16_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/17_Snr65NR_Ster_HB_RR1.wav",
+        "label": "17_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/18_Snr65NR_Ster_HB_RR1.wav",
+        "label": "18_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/19_Snr65NR_Ster_HB_RR1.wav",
+        "label": "19_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/20_Snr65NR_Ster_HB_RR1.wav",
+        "label": "20_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/21_Snr65NR_Ster_HB_RR1.wav",
+        "label": "21_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/22_Snr65NR_Ster_HB_RR1.wav",
+        "label": "22_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/23_Snr65NR_Ster_HB_RR1.wav",
+        "label": "23_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/24_Snr65NR_Ster_HB_RR1.wav",
+        "label": "24_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/25_Snr65NR_Ster_HB_RR1.wav",
+        "label": "25_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/26_Snr65NR_Ster_HB_RR1.wav",
+        "label": "26_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/27_Snr65NR_Ster_HB_RR1.wav",
+        "label": "27_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/28_Snr65NR_Ster_HB_RR1.wav",
+        "label": "28_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/29_Snr65NR_Ster_HB_RR1.wav",
+        "label": "29_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/30_Snr65NR_Ster_HB_RR1.wav",
+        "label": "30_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/31_Snr65NR_Ster_HB_RR1.wav",
+        "label": "31_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/32_Snr65NR_Ster_HB_RR1.wav",
+        "label": "32_Snr65NR_Ster_HB_RR1"
+      },
+      {
+        "value": "/real-drum/snare/real-01BB1-snare-R2M.wav",
+        "label": "real-01BB1-snare-R2M"
+      },
+      {
+        "value": "/real-drum/snare/real-01BB1-snare-R4M.wav",
+        "label": "real-01BB1-snare-R4M"
+      },
+      {
+        "value": "/real-drum/snare/real-01FL-snare-R4M.wav",
+        "label": "real-01FL-snare-R4M"
+      },
+      {
+        "value": "/real-drum/snare/real-01LR-snare-R2C-R.wav",
+        "label": "real-01LR-snare-R2C-R"
+      },
+      {
+        "value": "/real-drum/snare/real-01RI-snare-R4.M.wav",
+        "label": "real-01RI-snare-R4.M"
+      },
+      {
+        "value": "/real-drum/snare/real-01RR-snare-R1C-L.wav",
+        "label": "real-01RR-snare-R1C-L"
+      },
+      {
+        "value": "/real-drum/snare/real-01RR-snare-R1M.wav",
+        "label": "real-01RR-snare-R1M"
+      },
+      {
+        "value": "/real-drum/snare/real-01RR-snare-R2A-R.wav",
+        "label": "real-01RR-snare-R2A-R"
+      },
+      {
+        "value": "/real-drum/snare/real-01SS-snare-R4.M.wav",
+        "label": "real-01SS-snare-R4.M"
+      },
+      {
+        "value": "/real-drum/snare/real-02FL-snare-R4M.wav",
+        "label": "real-02FL-snare-R4M"
+      },
+      {
+        "value": "/real-drum/snare/real-02LI-snare-R1C-L.wav",
+        "label": "real-02LI-snare-R1C-L"
+      },
+      {
+        "value": "/real-drum/snare/real-02LI-snare-R1M.wav",
+        "label": "real-02LI-snare-R1M"
+      },
+      {
+        "value": "/real-drum/snare/real-02LI-snare-R2C-R.wav",
+        "label": "real-02LI-snare-R2C-R"
+      },
+      {
+        "value": "/real-drum/snare/real-02LI-snare-R2M.wav",
+        "label": "real-02LI-snare-R2M"
+      },
+      {
+        "value": "/real-drum/snare/real-03PR-snare-R2M.wav",
+        "label": "real-03PR-snare-R2M"
+      },
+      {
+        "value": "/real-drum/snare/real-snare-roll.wav",
+        "label": "real-snare-roll"
+      },
+      {
+        "value": "/real-drum/snare/real-soft-snare.wav",
+        "label": "real-soft-snare"
+      }
+    ],
+    "rimshot": [
+      {
+        "value": "/real-drum/rimshot/real-01RM-snare-R1M-.wav",
+        "label": "real-01RM-snare-R1M-"
+      },
+      {
+        "value": "/real-drum/rimshot/real-01RM-snare-R1M.wav",
+        "label": "real-01RM-snare-R1M"
+      }
+    ],
+    "sidestick": [
+      {
+        "value": "/real-drum/sidestick/real-03SS-snare-R1C-L.wav",
+        "label": "real-03SS-snare-R1C-L"
+      },
+      {
+        "value": "/real-drum/sidestick/real-03SS-snare-R1M.wav",
+        "label": "real-03SS-snare-R1M"
+      },
+      {
+        "value": "/real-drum/sidestick/real-03SS-snare-R2C-L.wav",
+        "label": "real-03SS-snare-R2C-L"
+      },
+      {
+        "value": "/real-drum/sidestick/real-03SS-snare-R2M.wav",
+        "label": "real-03SS-snare-R2M"
+      }
+    ],
+    "high_tom": [
+      {
+        "value": "/real-drum/high_tom/01_Tom-1_OH_RR1.wav",
+        "label": "01_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/02_Tom-1_OH_RR1.wav",
+        "label": "02_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/03_Tom-1_OH_RR1.wav",
+        "label": "03_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/04_Tom-1_OH_RR1.wav",
+        "label": "04_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/05_Tom-1_OH_RR1.wav",
+        "label": "05_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/06_Tom-1_OH_RR1.wav",
+        "label": "06_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/07_Tom-1_OH_RR1.wav",
+        "label": "07_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/08_Tom-1_OH_RR1.wav",
+        "label": "08_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/09_Tom-1_OH_RR1.wav",
+        "label": "09_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/10_Tom-1_OH_RR1.wav",
+        "label": "10_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/11_Tom-1_OH_RR1.wav",
+        "label": "11_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/12_Tom-1_OH_RR1.wav",
+        "label": "12_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/13_Tom-1_OH_RR1.wav",
+        "label": "13_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/14_Tom-1_OH_RR1.wav",
+        "label": "14_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/15_Tom-1_OH_RR1.wav",
+        "label": "15_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/16_Tom-1_OH_RR1.wav",
+        "label": "16_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/17_Tom-1_OH_RR1.wav",
+        "label": "17_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/18_Tom-1_OH_RR1.wav",
+        "label": "18_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/19_Tom-1_OH_RR1.wav",
+        "label": "19_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/20_Tom-1_OH_RR1.wav",
+        "label": "20_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/21_Tom-1_OH_RR1.wav",
+        "label": "21_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/22_Tom-1_OH_RR1.wav",
+        "label": "22_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/23_Tom-1_OH_RR1.wav",
+        "label": "23_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/24_Tom-1_OH_RR1.wav",
+        "label": "24_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/25_Tom-1_OH_RR1.wav",
+        "label": "25_Tom-1_OH_RR1"
+      },
+      {
+        "value": "/real-drum/high_tom/real-01FL.S3HIM.wav",
+        "label": "real-01FL.S3HIM"
+      },
+      {
+        "value": "/real-drum/high_tom/real-02.TOM1C-L.wav",
+        "label": "real-02.TOM1C-L"
+      },
+      {
+        "value": "/real-drum/high_tom/real-02FL.S3HIM.wav",
+        "label": "real-02FL.S3HIM"
+      },
+      {
+        "value": "/real-drum/high_tom/real-03RI.S3HIM.wav",
+        "label": "real-03RI.S3HIM"
+      },
+      {
+        "value": "/real-drum/high_tom/real-03RR.S3HIM.wav",
+        "label": "real-03RR.S3HIM"
+      }
+    ],
+    "mid_tom": [
+      {
+        "value": "/real-drum/mid_tom/01_Tom-2_OH_RR1.wav",
+        "label": "01_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/02_Tom-2_OH_RR1.wav",
+        "label": "02_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/03_Tom-2_OH_RR1.wav",
+        "label": "03_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/04_Tom-2_OH_RR1.wav",
+        "label": "04_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/05_Tom-2_OH_RR1.wav",
+        "label": "05_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/06_Tom-2_OH_RR1.wav",
+        "label": "06_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/07_Tom-2_OH_RR1.wav",
+        "label": "07_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/08_Tom-2_OH_RR1.wav",
+        "label": "08_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/09_Tom-2_OH_RR1.wav",
+        "label": "09_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/10_Tom-2_OH_RR1.wav",
+        "label": "10_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/11_Tom-2_OH_RR1.wav",
+        "label": "11_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/12_Tom-2_OH_RR1.wav",
+        "label": "12_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/13_Tom-2_OH_RR1.wav",
+        "label": "13_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/14_Tom-2_OH_RR1.wav",
+        "label": "14_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/15_Tom-2_OH_RR1.wav",
+        "label": "15_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/16_Tom-2_OH_RR1.wav",
+        "label": "16_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/17_Tom-2_OH_RR1.wav",
+        "label": "17_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/18_Tom-2_OH_RR1.wav",
+        "label": "18_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/19_Tom-2_OH_RR1.wav",
+        "label": "19_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/20_Tom-2_OH_RR1.wav",
+        "label": "20_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/21_Tom-2_OH_RR1.wav",
+        "label": "21_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/22_Tom-2_OH_RR1.wav",
+        "label": "22_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/23_Tom-2_OH_RR1.wav",
+        "label": "23_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/24_Tom-2_OH_RR1.wav",
+        "label": "24_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/25_Tom-2_OH_RR1.wav",
+        "label": "25_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/26_Tom-2_OH_RR1.wav",
+        "label": "26_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/27_Tom-2_OH_RR1.wav",
+        "label": "27_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/28_Tom-2_OH_RR1.wav",
+        "label": "28_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/29_Tom-2_OH_RR1.wav",
+        "label": "29_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/30_Tom-2_OH_RR1.wav",
+        "label": "30_Tom-2_OH_RR1"
+      },
+      {
+        "value": "/real-drum/mid_tom/real-03.TOM2C-L.wav",
+        "label": "real-03.TOM2C-L"
+      },
+      {
+        "value": "/real-drum/mid_tom/real-03.TOM3C-L.wav",
+        "label": "real-03.TOM3C-L"
+      }
+    ],
+    "floor_tom": [
+      {
+        "value": "/real-drum/floor_tom/01_Tom-3_OH_RR1.wav",
+        "label": "01_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/02_Tom-3_OH_RR1.wav",
+        "label": "02_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/03_Tom-3_OH_RR1.wav",
+        "label": "03_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/04_Tom-3_OH_RR1.wav",
+        "label": "04_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/05_Tom-3_OH_RR1.wav",
+        "label": "05_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/06_Tom-3_OH_RR1.wav",
+        "label": "06_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/07_Tom-3_OH_RR1.wav",
+        "label": "07_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/08_Tom-3_OH_RR1.wav",
+        "label": "08_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/09_Tom-3_OH_RR1.wav",
+        "label": "09_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/10_Tom-3_OH_RR1.wav",
+        "label": "10_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/11_Tom-3_OH_RR1.wav",
+        "label": "11_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/12_Tom-3_OH_RR1.wav",
+        "label": "12_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/13_Tom-3_OH_RR1.wav",
+        "label": "13_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/14_Tom-3_OH_RR1.wav",
+        "label": "14_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/15_Tom-3_OH_RR1.wav",
+        "label": "15_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/16_Tom-3_OH_RR1.wav",
+        "label": "16_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/17_Tom-3_OH_RR1.wav",
+        "label": "17_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/18_Tom-3_OH_RR1.wav",
+        "label": "18_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/19_Tom-3_OH_RR1.wav",
+        "label": "19_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/20_Tom-3_OH_RR1.wav",
+        "label": "20_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/21_Tom-3_OH_RR1.wav",
+        "label": "21_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/22_Tom-3_OH_RR1.wav",
+        "label": "22_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/23_Tom-3_OH_RR1.wav",
+        "label": "23_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/24_Tom-3_OH_RR1.wav",
+        "label": "24_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/25_Tom-3_OH_RR1.wav",
+        "label": "25_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/26_Tom-3_OH_RR1.wav",
+        "label": "26_Tom-3_OH_RR1"
+      },
+      {
+        "value": "/real-drum/floor_tom/real-01FL.S3LOM.wav",
+        "label": "real-01FL.S3LOM"
+      },
+      {
+        "value": "/real-drum/floor_tom/real-01RI.S3LOM-.wav",
+        "label": "real-01RI.S3LOM-"
+      },
+      {
+        "value": "/real-drum/floor_tom/real-01RI.S3LOM.wav",
+        "label": "real-01RI.S3LOM"
+      },
+      {
+        "value": "/real-drum/floor_tom/real-01SS.S3LOM.wav",
+        "label": "real-01SS.S3LOM"
+      },
+      {
+        "value": "/real-drum/floor_tom/real-02.TOM5C-L.wav",
+        "label": "real-02.TOM5C-L"
+      },
+      {
+        "value": "/real-drum/floor_tom/real-02BB.S3LOM.wav",
+        "label": "real-02BB.S3LOM"
+      },
+      {
+        "value": "/real-drum/floor_tom/real-02FL.S3LOM.wav",
+        "label": "real-02FL.S3LOM"
+      },
+      {
+        "value": "/real-drum/floor_tom/real-08.TOM4M.wav",
+        "label": "real-08.TOM4M"
+      }
+    ],
+    "hi_hat_open": [
+      {
+        "value": "/real-drum/hi_hat_open/real-01L3.UF-HiHat-A-L.wav",
+        "label": "real-01L3.UF-HiHat-A-L"
+      },
+      {
+        "value": "/real-drum/hi_hat_open/real-02L4.UF-HiHat-A-R.wav",
+        "label": "real-02L4.UF-HiHat-A-R"
+      },
+      {
+        "value": "/real-drum/hi_hat_open/real-02R3.UF-HiHat-A-L.wav",
+        "label": "real-02R3.UF-HiHat-A-L"
+      },
+      {
+        "value": "/real-drum/hi_hat_open/real-02R3.UF-HiHat-A-R.wav",
+        "label": "real-02R3.UF-HiHat-A-R"
+      },
+      {
+        "value": "/real-drum/hi_hat_open/real-02R4.UF-HiHat-A-L.wav",
+        "label": "real-02R4.UF-HiHat-A-L"
+      },
+      {
+        "value": "/real-drum/hi_hat_open/real-03R4.UF-HiHat-A-L.wav",
+        "label": "real-03R4.UF-HiHat-A-L"
+      }
+    ],
+    "hi_hat_close": [
+      {
+        "value": "/real-drum/hi_hat_close/01_Hat_Tight_Cnt_RR1.wav",
+        "label": "01_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/02_Hat_Tight_Cnt_RR1.wav",
+        "label": "02_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/03_Hat_Tight_Cnt_RR1.wav",
+        "label": "03_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/04_Hat_Tight_Cnt_RR1.wav",
+        "label": "04_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/05_Hat_Tight_Cnt_RR1.wav",
+        "label": "05_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/06_Hat_Tight_Cnt_RR1.wav",
+        "label": "06_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/07_Hat_Tight_Cnt_RR1.wav",
+        "label": "07_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/08_Hat_Tight_Cnt_RR1.wav",
+        "label": "08_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/09_Hat_Tight_Cnt_RR1.wav",
+        "label": "09_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/10_Hat_Tight_Cnt_RR1.wav",
+        "label": "10_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/11_Hat_Tight_Cnt_RR1.wav",
+        "label": "11_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/12_Hat_Tight_Cnt_RR1.wav",
+        "label": "12_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/13_Hat_Tight_Cnt_RR1.wav",
+        "label": "13_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/14_Hat_Tight_Cnt_RR1.wav",
+        "label": "14_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/15_Hat_Tight_Cnt_RR1.wav",
+        "label": "15_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/16_Hat_Tight_Cnt_RR1.wav",
+        "label": "16_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/17_Hat_Tight_Cnt_RR1.wav",
+        "label": "17_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/18_Hat_Tight_Cnt_RR1.wav",
+        "label": "18_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/19_Hat_Tight_Cnt_RR1.wav",
+        "label": "19_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/20_Hat_Tight_Cnt_RR1.wav",
+        "label": "20_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/21_Hat_Tight_Cnt_RR1.wav",
+        "label": "21_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/22_Hat_Tight_Cnt_RR1.wav",
+        "label": "22_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/23_Hat_Tight_Cnt_RR1.wav",
+        "label": "23_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/24_Hat_Tight_Cnt_RR1.wav",
+        "label": "24_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/25_Hat_Tight_Cnt_RR1.wav",
+        "label": "25_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/26_Hat_Tight_Cnt_RR1.wav",
+        "label": "26_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/27_Hat_Tight_Cnt_RR1.wav",
+        "label": "27_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/28_Hat_Tight_Cnt_RR1.wav",
+        "label": "28_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/29_Hat_Tight_Cnt_RR1.wav",
+        "label": "29_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/30_Hat_Tight_Cnt_RR1.wav",
+        "label": "30_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/31_Hat_Tight_Cnt_RR1.wav",
+        "label": "31_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/32_Hat_Tight_Cnt_RR1.wav",
+        "label": "32_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/33_Hat_Tight_Cnt_RR1.wav",
+        "label": "33_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/34_Hat_Tight_Cnt_RR1.wav",
+        "label": "34_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/35_Hat_Tight_Cnt_RR1.wav",
+        "label": "35_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/36_Hat_Tight_Cnt_RR1.wav",
+        "label": "36_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/37_Hat_Tight_Cnt_RR1.wav",
+        "label": "37_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/38_Hat_Tight_Cnt_RR1.wav",
+        "label": "38_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/39_Hat_Tight_Cnt_RR1.wav",
+        "label": "39_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/40_Hat_Tight_Cnt_RR1.wav",
+        "label": "40_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/41_Hat_Tight_Cnt_RR1.wav",
+        "label": "41_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/42_Hat_Tight_Cnt_RR1.wav",
+        "label": "42_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/43_Hat_Tight_Cnt_RR1.wav",
+        "label": "43_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/44_Hat_Tight_Cnt_RR1.wav",
+        "label": "44_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/45_Hat_Tight_Cnt_RR1.wav",
+        "label": "45_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/46_Hat_Tight_Cnt_RR1.wav",
+        "label": "46_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/47_Hat_Tight_Cnt_RR1.wav",
+        "label": "47_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/48_Hat_Tight_Cnt_RR1.wav",
+        "label": "48_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/49_Hat_Tight_Cnt_RR1.wav",
+        "label": "49_Hat_Tight_Cnt_RR1"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/real-01L1.UF-HiHat-M.wav",
+        "label": "real-01L1.UF-HiHat-M"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/real-01L2.UF-HiHat-M.wav",
+        "label": "real-01L2.UF-HiHat-M"
+      },
+      {
+        "value": "/real-drum/hi_hat_close/real-02R3.UF-HiHat-M.wav",
+        "label": "real-02R3.UF-HiHat-M"
+      }
+    ],
+    "foot_hi_hat": [
+      {
+        "value": "/real-drum/foot_hi_hat/real-01PD.UF-HiHat-M.wav",
+        "label": "real-01PD.UF-HiHat-M"
+      },
+      {
+        "value": "/real-drum/foot_hi_hat/real-01PS.UF-HiHat-M.wav",
+        "label": "real-01PS.UF-HiHat-M"
+      },
+      {
+        "value": "/real-drum/foot_hi_hat/real-03PD.UF-HiHat-A-L.wav",
+        "label": "real-03PD.UF-HiHat-A-L"
+      }
+    ],
+    "ride_cymbal": [
+      {
+        "value": "/real-drum/ride_cymbal/01_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "01_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/02_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "02_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/03_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "03_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/04_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "04_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/05_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "05_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/06_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "06_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/07_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "07_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/08_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "08_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/09_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "09_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/10_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "10_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/11_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "11_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/12_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "12_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/13_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "13_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/14_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "14_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/15_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "15_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/16_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "16_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/17_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "17_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/18_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "18_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/19_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "19_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/20_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "20_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/21_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "21_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/22_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "22_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/23_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "23_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/24_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "24_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/25_Ride_17in_L_Cnt_Tip_RR1.wav",
+        "label": "25_Ride_17in_L_Cnt_Tip_RR1"
+      },
+      {
+        "value": "/real-drum/ride_cymbal/real-long-ride.wav",
+        "label": "real-long-ride"
+      }
+    ],
+    "crash_cymbal": [
+      {
+        "value": "/real-drum/crash_cymbal/01_Crash_13in_R_edge_RR1.wav",
+        "label": "01_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/02_Crash_13in_R_edge_RR1.wav",
+        "label": "02_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/03_Crash_13in_R_edge_RR1.wav",
+        "label": "03_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/04_Crash_13in_R_edge_RR1.wav",
+        "label": "04_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/05_Crash_13in_R_edge_RR1.wav",
+        "label": "05_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/06_Crash_13in_R_edge_RR1.wav",
+        "label": "06_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/07_Crash_13in_R_edge_RR1.wav",
+        "label": "07_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/08_Crash_13in_R_edge_RR1.wav",
+        "label": "08_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/09_Crash_13in_R_edge_RR1.wav",
+        "label": "09_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/10_Crash_13in_R_edge_RR1.wav",
+        "label": "10_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/11_Crash_13in_R_edge_RR1.wav",
+        "label": "11_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/12_Crash_13in_R_edge_RR1.wav",
+        "label": "12_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/13_Crash_13in_R_edge_RR1.wav",
+        "label": "13_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/14_Crash_13in_R_edge_RR1.wav",
+        "label": "14_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/15_Crash_13in_R_edge_RR1.wav",
+        "label": "15_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/16_Crash_13in_R_edge_RR1.wav",
+        "label": "16_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/17_Crash_13in_R_edge_RR1.wav",
+        "label": "17_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/18_Crash_13in_R_edge_RR1.wav",
+        "label": "18_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/19_Crash_13in_R_edge_RR1.wav",
+        "label": "19_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/20_Crash_13in_R_edge_RR1.wav",
+        "label": "20_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/21_Crash_13in_R_edge_RR1.wav",
+        "label": "21_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/22_Crash_13in_R_edge_RR1.wav",
+        "label": "22_Crash_13in_R_edge_RR1"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/real-01.8ACSM.wav",
+        "label": "real-01.8ACSM"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/real-01CH.8ACSM.wav",
+        "label": "real-01CH.8ACSM"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/real-01CH12ACSM.wav",
+        "label": "real-01CH12ACSM"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/real-01EG19THCM.wav",
+        "label": "real-01EG19THCM"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/real-01FX18MDCM.wav",
+        "label": "real-01FX18MDCM"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/real-01TP19THCM.wav",
+        "label": "real-01TP19THCM"
+      },
+      {
+        "value": "/real-drum/crash_cymbal/real-01TP20CHIM.wav",
+        "label": "real-01TP20CHIM"
+      }
+    ],
+    "misc": [
+      {
+        "value": "/real-drum/misc/real-02BL20RKRM.wav",
+        "label": "real-02BL20RKRM"
+      }
+    ]
+  }
+}

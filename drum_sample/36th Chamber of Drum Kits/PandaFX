@@ -1,0 +1,77 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='PandaFX.gif' rel='icon' type='image/x-icon'/>
+  <link href='PandaFX.gif' rel='icon shortcut' sizes='64x64'/>
+  <link href='PandaFX.gif' rel='icon shortcut' sizes='128x128'/>
+  <link href='PandaFX.gif' rel='icon shortcut' sizes='192x192'/>
+  <link href='PandaFX.gif' rel='apple-touch-icon' sizes='76x76'/>
+  <link href='PandaFX.gif' rel='apple-touch-icon' sizes='120x120'/>
+  <link href='PandaFX.gif' rel='apple-touch-icon' sizes='152x152'/>
+  <link href='PandaFX.gif' rel='apple-touch-icon' sizes='180x180'/>
+
+<style type="text/css"-->
+body {
+background-color: black;
+font-size: 13px;
+font-family: Verdana, Geneva, sans-serif, Arial, sans-serif;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+img{
+    border:none;
+    position:relative
+}
+a,a:visited {
+    text-decoration:none
+    color:white;
+}
+a:hover {
+  color: #ccc;text-decoration:underline;
+}
+a {
+  color: #fff;text-decoration:none;
+}
+a:visited {
+    color: #fff;text-decoration:none;
+}
+.clearfix{
+    clear:both
+}
+div.background000 {
+
+  background-color: #000;
+  height: 555px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+div.transbox000 {
+  margin: 0px;
+  background-color: rgba(0, 0, 0, 10%);
+  border: 0px solid black;
+  height: 555px;
+  width: 100%;
+}
+</style>	
+
+</head>
+<body>
+<iframe frameborder="0" height="10" src="" width="100%"></iframe>
+<center><a target="_blank" href="https://panda-fx-music.blogspot.com/" ><img style="border-width: 0px;" src="PandaFX.gif" width="300" height=“300” /></a>
+<center><p><span style="font-size: 60px; text-align: center;text-shadow: 2px 2px 2px black;"><a target="_blank" href="https://panda-fx-music.blogspot.com/" ><b>PandaFX</b></a></span></p>
+<p><span style="font-size: 13px; text-align: center;text-shadow: 2px 2px 2px black;"><b> Beatmaker | Producer | Content Creator </b></span></p>
+</br>
+<center><p><span style="font-size: 16px; text-align: center;text-shadow: 2px 2px 2px black;"><b><a target="_blank" href="https://panda-fx-music.blogspot.com/search/label/DRUM KITS">DRUM KITS</a>  |  <a target="_blank" href="https://panda-fx-music.blogspot.com/search/label/STEMS">STEMS</a>  |  <a target="_blank" href="https://panda-fx-music.blogspot.com/search/label/ACAPELLAS">ACAPELLAS</a>  |  <a target="_blank" href="https://panda-fx-music.blogspot.com/search/label/SAMPLES">SAMPLES</a>  |  <a target="_blank" href="https://panda-fx-music.blogspot.com/search/label/LOOPS">LOOPS</a>  |  <a target="_blank" href="https://panda-fx-music.blogspot.com/search/label/MIDI">MIDI</a></b></span></p></center>
+</br>
+<p>🎧  Don't miss out  - <a target="_blank" href="https://panda-fx-music.blogspot.com/" >subscribe</a> now and join the PandaFX community! </p>
+<p>💣  We've got you covered with fresh tunes, drum kits, sample packs, and Livstreams.</p>
+</center>
+
+
+</body>
+</html>
