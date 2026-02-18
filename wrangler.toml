@@ -1,10 +1,9 @@
-name = "guitar-practice-api"
+name = "jproject"
 main = "worker/index.ts"
 compatibility_date = "2026-02-14"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "guitar_practice_db"
-database_id = "REPLACE_WITH_REAL_DB_ID"
+database_id = "30381490-d023-4667-af85-8badc2b47cb9"
 migrations_dir = "db/migrations"
-
