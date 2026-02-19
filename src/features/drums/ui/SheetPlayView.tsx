@@ -1,6 +1,7 @@
-﻿import { memo, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent } from "react";
+﻿import { memo, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type ChangeEvent, type MouseEvent as ReactMouseEvent } from "react";
 import { Annotation, BarlineType, Beam, Formatter, GhostNote, Renderer, Stave, StaveNote, Stem, Voice } from "vexflow";
 import { getDrumSheets, upsertDrumSheet } from "../api";
+import { GP_FILE_ACCEPT, GpImportError, importDrumSheetFromGpFile, type ImportedDrumSheet } from "../gpImport";
 import { DRUM_SAMPLE_SETTINGS_EVENT, readDrumSampleSettings } from "../sampleSettings";
 import {
   METRONOME_FORCE_STOP_EVENT,
@@ -1407,6 +1408,7 @@ export function SheetPlayView() {
   const selectionClipboardRef = useRef<BeatClipboardBlock | null>(null);
   const dragMovedRef = useRef(false);
   const dragAnchorRef = useRef<{ trackIndex: number; step: number } | null>(null);
+  const gpFileInputRef = useRef<HTMLInputElement | null>(null);
   const trackGridScrollRef = useRef<HTMLDivElement | null>(null);
   const notationSurfaceRef = useRef<HTMLDivElement | null>(null);
   const scorePaperRef = useRef<HTMLDivElement | null>(null);
@@ -2254,6 +2256,80 @@ export function SheetPlayView() {
   function createSheetFromModal(): void {
     if (createSheet()) {
       setShowCreateModal(false);
+    }
+  }
+
+  function openGpImportPicker(): void {
+    gpFileInputRef.current?.click();
+  }
+
+  function applyImportedSheet(imported: ImportedDrumSheet): void {
+    const totalSteps = imported.stepsPerBar * imported.totalBars;
+    const nextPattern = makeEmptyPattern(totalSteps);
+    const importedNoteLengths = cloneNoteLengthOverrides(imported.noteLengthOverrides);
+    for (const track of TRACKS) {
+      nextPattern[track.id] = [...(imported.pattern[track.id] ?? nextPattern[track.id])];
+    }
+
+    const nextSheet: SavedSheet = {
+      id: `sheet-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+      title: imported.title.trim() || "가져온 GP 드럼 악보",
+      bpm: imported.bpm,
+      timeSignature: imported.timeSignature,
+      stepsPerBar: imported.stepsPerBar,
+      totalBars: imported.totalBars,
+      pattern: nextPattern,
+      noteLengthOverrides: importedNoteLengths,
+      selectedSamples: cloneSamples(defaultSamplesRef.current),
+      updatedAt: Date.now()
+    };
+
+    stopPlaybackTransport();
+    editorRef.current = nextSheet;
+    noteLengthOverridesRef.current = importedNoteLengths;
+    setEditorSheet(nextSheet);
+    setSheetViewMode("edit");
+    setTitleInput(nextSheet.title);
+    setBpmInput(nextSheet.bpm);
+    setTimeSignatureInput(nextSheet.timeSignature);
+    setTotalBarsInput(nextSheet.totalBars);
+    setCurrentStep(0);
+    currentStepRef.current = 0;
+    transportStartStepRef.current = 0;
+    nextScheduledStepRef.current = 0;
+    setBeatSelection(null);
+    setDragAnchor(null);
+    setNoteLengthOverrides(importedNoteLengths);
+    setSheetMessage(`"${nextSheet.title}" GP 가져오기 완료`);
+  }
+
+  async function handleGpFileInputChange(event: ChangeEvent<HTMLInputElement>): Promise<void> {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) {
+      return;
+    }
+
+    try {
+      const imported = await importDrumSheetFromGpFile(file);
+      applyImportedSheet(imported);
+      setToastMessage(`GP 드럼 악보를 불러왔습니다. (매핑 ${imported.mappedNoteCount}, 무시 ${imported.ignoredNoteCount})`);
+    } catch (error) {
+      if (error instanceof GpImportError) {
+        if (error.code === "NO_DRUM_TRACK" || error.code === "EMPTY_TRACK") {
+          setToastMessage("드럼 트랙이 없어 GP 불러오기를 할 수 없습니다.");
+          return;
+        }
+        if (error.code === "UNSUPPORTED_TIME_SIGNATURE") {
+          setToastMessage("이 박자표는 현재 가져오기를 지원하지 않습니다.");
+          return;
+        }
+        if (error.code === "FILE_TOO_LARGE") {
+          setToastMessage("파일 크기가 너무 큽니다. 10MB 이하만 가져올 수 있습니다.");
+          return;
+        }
+      }
+      setToastMessage("GP 파일을 읽지 못했습니다. 파일 형식을 확인해 주세요.");
     }
   }
 
@@ -3784,6 +3860,16 @@ export function SheetPlayView() {
         <button type="button" onClick={() => setShowCreateModal(true)}>
           만들기
         </button>
+        <button type="button" onClick={openGpImportPicker}>
+          GP 불러오기
+        </button>
+        <input
+          ref={gpFileInputRef}
+          type="file"
+          accept={GP_FILE_ACCEPT}
+          onChange={handleGpFileInputChange}
+          hidden
+        />
       </div>
 
       {editorSheet ? (
@@ -4141,9 +4227,4 @@ export function SheetPlayView() {
     </section>
   );
 }
-
-
-
-
-
 
