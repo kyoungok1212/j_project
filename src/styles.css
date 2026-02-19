@@ -1089,7 +1089,7 @@ button:disabled {
 
 .drum-step-row {
   display: grid;
-  grid-template-columns: 220px repeat(var(--drum-step-count, 16), minmax(0, 1fr));
+  grid-template-columns: 120px repeat(var(--drum-step-count, 16), minmax(0, 1fr));
   gap: 4px;
   align-items: center;
 }
@@ -1527,7 +1527,7 @@ button:disabled {
 
 .sheet-maker-row {
   display: grid;
-  grid-template-columns: 220px repeat(var(--sheet-step-count, 16), minmax(14px, 1fr));
+  grid-template-columns: 120px repeat(var(--sheet-step-count, 16), minmax(14px, 1fr));
   column-gap: 0;
   row-gap: 4px;
   align-items: center;
