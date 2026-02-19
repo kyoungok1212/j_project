@@ -3,7 +3,7 @@ import type { ApiMeta } from "../types";
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
   "access-control-allow-origin": "*",
-  "access-control-allow-methods": "GET,POST,PATCH,DELETE,OPTIONS",
+  "access-control-allow-methods": "GET,POST,PUT,PATCH,DELETE,OPTIONS",
   "access-control-allow-headers": "content-type,x-user-id,idempotency-key"
 };
 
@@ -59,4 +59,3 @@ export function options(): Response {
     headers: JSON_HEADERS
   });
 }
-

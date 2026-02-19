@@ -2,6 +2,24 @@ import type { ApiEnvelope } from "../types/api";
 
 const DEFAULT_USER_ID = "local-user";
 
+function resolveApiBaseUrl(): string {
+  const configured = (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim();
+  if (!configured) {
+    return "/api/v1";
+  }
+
+  const normalized = configured.replace(/\/+$/, "");
+  if (normalized.endsWith("/api/v1")) {
+    return normalized;
+  }
+  if (normalized.endsWith("/api")) {
+    return `${normalized}/v1`;
+  }
+  return `${normalized}/api/v1`;
+}
+
+const API_BASE_URL = resolveApiBaseUrl();
+
 export async function apiRequest<T>(
   path: string,
   init?: RequestInit & { requireUser?: boolean; idempotencyKey?: string; timeoutMs?: number }
@@ -20,7 +38,7 @@ export async function apiRequest<T>(
   const timer = window.setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const response = await fetch(`/api/v1${path}`, {
+    const response = await fetch(`${API_BASE_URL}${path}`, {
       ...init,
       headers,
       signal: controller.signal
