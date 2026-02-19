@@ -355,7 +355,7 @@ function buildPracticeSequence(
   return sequence;
 }
 
-export function ScalesView() {
+export function ScalesView({ supervisorUnlocked = false }: { supervisorUnlocked?: boolean }) {
   const [root, setRoot] = useState("C");
   const [family, setFamily] = useState<ScaleFamily>("diatonic");
   const [tonality, setTonality] = useState<Tonality>("major");
@@ -521,6 +521,12 @@ export function ScalesView() {
       setManualStatus(`편집 종료 - ${positionRangeLabel(system)} 범위의 포지션을 선택하세요.`);
     }
   }, [editMode, selectedPosition, system]);
+
+  useEffect(() => {
+    if (!supervisorUnlocked && editMode) {
+      setEditMode(false);
+    }
+  }, [supervisorUnlocked, editMode]);
 
   useEffect(() => {
     if (!stateLoaded) return;
@@ -938,17 +944,19 @@ export function ScalesView() {
               </button>
             ))}
           </div>
-          <div className="position-actions">
-            <button type="button" onClick={handleToggleEditMode} disabled={selectedPosition == null}>
-              {editMode ? "포지션 패턴 수정 종료" : "포지션 패턴 수정"}
-            </button>
-            <button type="button" onClick={() => void handleFillDefaultData()} disabled={seeding}>
-              {seeding ? "채우는 중..." : "기준 데이터 채우기"}
-            </button>
-            <button type="button" onClick={handleClearManualPosition} disabled={selectedPosition == null}>
-              현재 포지션 삭제
-            </button>
-          </div>
+          {supervisorUnlocked ? (
+            <div className="position-actions">
+              <button type="button" onClick={handleToggleEditMode} disabled={selectedPosition == null}>
+                {editMode ? "포지션 패턴 수정 종료" : "포지션 패턴 수정"}
+              </button>
+              <button type="button" onClick={() => void handleFillDefaultData()} disabled={seeding}>
+                {seeding ? "채우는 중..." : "기준 데이터 채우기"}
+              </button>
+              <button type="button" onClick={handleClearManualPosition} disabled={selectedPosition == null}>
+                현재 포지션 삭제
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
 

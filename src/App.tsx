@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ChordsView } from "./features/chords/ui/ChordsView";
 import { ScalesView } from "./features/scales/ui/ScalesView";
 import { PhrasesView } from "./features/phrases/ui/PhrasesView";
@@ -11,6 +11,7 @@ import { DrumSettingsView } from "./features/drums/ui/DrumSettingsView";
 type PracticeMode = "guitar" | "drums";
 type MenuKey = "chords" | "scales" | "phrases" | "progress";
 type DrumMenuKey = "drum_machine" | "sheet_play" | "drum_settings";
+const SUPERVISOR_PASSWORD = "1218";
 
 const MENUS: Array<{ key: MenuKey; label: string; cue: string; description: string }> = [
   { key: "scales", label: "스케일", cue: "스케일", description: "스케일 포지션과 지판 음을 연습합니다." },
@@ -32,22 +33,49 @@ export function App() {
   const [practiceMode, setPracticeMode] = useState<PracticeMode>("guitar");
   const [menu, setMenu] = useState<MenuKey>("scales");
   const [drumMenu, setDrumMenu] = useState<DrumMenuKey>("drum_machine");
+  const [supervisorUnlocked, setSupervisorUnlocked] = useState(false);
   const forceDrumMachineFourBeats = practiceMode === "drums" && drumMenu === "drum_machine";
+  const visibleDrumMenus = useMemo(
+    () => (supervisorUnlocked ? DRUM_MENUS : DRUM_MENUS.filter((item) => item.key !== "drum_settings")),
+    [supervisorUnlocked]
+  );
+
+  useEffect(() => {
+    if (!supervisorUnlocked && drumMenu === "drum_settings") {
+      setDrumMenu("drum_machine");
+    }
+  }, [supervisorUnlocked, drumMenu]);
+
+  function handleSupervisorButtonClick(): void {
+    if (supervisorUnlocked) {
+      setSupervisorUnlocked(false);
+      return;
+    }
+    const input = window.prompt("SV 비밀번호를 입력하세요.");
+    if (input == null) {
+      return;
+    }
+    if (input === SUPERVISOR_PASSWORD) {
+      setSupervisorUnlocked(true);
+      return;
+    }
+    window.alert("비밀번호가 올바르지 않습니다.");
+  }
 
   const activeView = useMemo(() => {
     switch (menu) {
       case "chords":
-        return <ChordsView />;
+        return <ChordsView supervisorUnlocked={supervisorUnlocked} />;
       case "scales":
-        return <ScalesView />;
+        return <ScalesView supervisorUnlocked={supervisorUnlocked} />;
       case "phrases":
         return <PhrasesView />;
       case "progress":
         return <ProgressView />;
       default:
-        return <ScalesView />;
+        return <ScalesView supervisorUnlocked={supervisorUnlocked} />;
     }
-  }, [menu]);
+  }, [menu, supervisorUnlocked]);
 
   const activeDrumView = useMemo(() => {
     switch (drumMenu) {
@@ -85,8 +113,18 @@ export function App() {
           </nav>
 
           <div className="hero-title-row">
-            <h1 className="title">J.Guitar and Drum Practice App</h1>
-            <p className="eyebrow">FOR TEAM.PENTATONIC</p>
+            <div className="hero-title-copy">
+              <h1 className="title">J.Guitar and Drum Practice App</h1>
+              <p className="eyebrow">FOR TEAM.PENTATONIC</p>
+            </div>
+            <button
+              type="button"
+              className={`sv-toggle-btn ${supervisorUnlocked ? "active" : ""}`}
+              onClick={handleSupervisorButtonClick}
+              title={supervisorUnlocked ? "SV 잠금 해제됨 (클릭 시 잠금)" : "SV 잠금"}
+            >
+              SV
+            </button>
           </div>
         </div>
       </header>
@@ -118,7 +156,7 @@ export function App() {
           <aside className="control-stack">
             <TopMetronomeBar forceFourBeats={forceDrumMachineFourBeats} />
             <nav className="menu-bar" aria-label="드럼 연습 메뉴">
-              {DRUM_MENUS.map((item, idx) => (
+              {visibleDrumMenus.map((item, idx) => (
                 <button
                   key={item.key}
                   className={`menu-btn ${drumMenu === item.key ? "active" : ""}`}

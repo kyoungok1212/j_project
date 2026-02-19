@@ -481,7 +481,7 @@ function ensureFirstPositionOpenTone(
   return normalized;
 }
 
-export function ChordsView() {
+export function ChordsView({ supervisorUnlocked = false }: { supervisorUnlocked?: boolean }) {
   const [root, setRoot] = useState<(typeof ROOTS)[number]>("C");
   const [chordType, setChordType] = useState<ChordType>("major");
   const [position, setPosition] = useState<PositionChoice>("all");
@@ -587,6 +587,13 @@ export function ChordsView() {
       }
     };
   }, [manualStore, manualMuteStore, manualBarreStore, stateLoaded]);
+
+  useEffect(() => {
+    if (!supervisorUnlocked && editMode) {
+      setEditMode(false);
+      setBarreDrag(null);
+    }
+  }, [supervisorUnlocked, editMode]);
 
   const selectedType = useMemo(
     () => CHORD_TYPE_DEFS.find((item) => item.id === chordType) ?? CHORD_TYPE_DEFS[0],
@@ -1072,25 +1079,27 @@ export function ChordsView() {
               ))}
             </div>
 
-            <div className="position-actions">
-              <button
-                type="button"
-                className={`option-btn ${editMode ? "active" : ""}`}
-                aria-pressed={editMode}
-                onClick={handleToggleEditMode}
-                disabled={selectedPosition == null}
-              >
-                {editMode ? "포지션 수정 종료" : "포지션 수정"}
-              </button>
-              <button
-                type="button"
-                className="option-btn"
-                onClick={handleClearSelectedPosition}
-                disabled={selectedPosition == null}
-              >
-                현재 포지션 초기화
-              </button>
-            </div>
+            {supervisorUnlocked ? (
+              <div className="position-actions">
+                <button
+                  type="button"
+                  className={`option-btn ${editMode ? "active" : ""}`}
+                  aria-pressed={editMode}
+                  onClick={handleToggleEditMode}
+                  disabled={selectedPosition == null}
+                >
+                  {editMode ? "포지션 수정 종료" : "포지션 수정"}
+                </button>
+                <button
+                  type="button"
+                  className="option-btn"
+                  onClick={handleClearSelectedPosition}
+                  disabled={selectedPosition == null}
+                >
+                  현재 포지션 초기화
+                </button>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
