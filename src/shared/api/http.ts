@@ -5,6 +5,9 @@ const DEFAULT_USER_ID = "local-user";
 function resolveApiBaseUrl(): string {
   const configured = (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim();
   if (!configured) {
+    if (typeof window !== "undefined" && window.location.hostname === "j-project.pages.dev") {
+      return "https://jproject.metal5757.workers.dev/api/v1";
+    }
     return "/api/v1";
   }
 
