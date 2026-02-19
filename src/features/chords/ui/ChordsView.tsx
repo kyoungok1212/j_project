@@ -1,5 +1,7 @@
 ﻿import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 
+import { getChordManualState, upsertChordManualState } from "../api";
+
 type ChordType =
   | "major"
   | "minor"
@@ -158,6 +160,29 @@ function readBarreStore(): ManualBarreStore {
 function writeBarreStore(store: ManualBarreStore): void {
   if (typeof window === "undefined") return;
   window.localStorage.setItem(MANUAL_CHORD_BARRE_STORE_KEY, JSON.stringify(store));
+}
+
+function asObjectRecord(value: unknown): Record<string, unknown> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+  return value as Record<string, unknown>;
+}
+
+function asManualChordStore(value: unknown): ManualChordStore {
+  return asObjectRecord(value) as ManualChordStore;
+}
+
+function asManualMuteStore(value: unknown): ManualMuteStore {
+  return asObjectRecord(value) as ManualMuteStore;
+}
+
+function asManualBarreStore(value: unknown): ManualBarreStore {
+  return asObjectRecord(value) as ManualBarreStore;
+}
+
+function hasAnyChordState(voicings: ManualChordStore, mutes: ManualMuteStore, barres: ManualBarreStore): boolean {
+  return Object.keys(voicings).length > 0 || Object.keys(mutes).length > 0 || Object.keys(barres).length > 0;
 }
 
 function isStringNo(value: number): value is StringNo {
@@ -466,9 +491,102 @@ export function ChordsView() {
   const [barreDrag, setBarreDrag] = useState<BarreDragState | null>(null);
   const [editMode, setEditMode] = useState(false);
   const [editStatus, setEditStatus] = useState("");
+  const [stateLoaded, setStateLoaded] = useState(false);
 
   const barreSuppressClickRef = useRef(false);
+  const saveDebounceRef = useRef<number | null>(null);
   const selectedPosition = position === "all" ? null : position;
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadManualStateFromDb(): Promise<void> {
+      const localVoicings = readManualStore();
+      const localMutes = readMuteStore();
+      const localBarres = readBarreStore();
+
+      try {
+        const remote = await getChordManualState();
+        const remoteVoicings = asManualChordStore(remote.voicings);
+        const remoteMutes = asManualMuteStore(remote.mutes);
+        const remoteBarres = asManualBarreStore(remote.barres);
+        const hasRemote = hasAnyChordState(remoteVoicings, remoteMutes, remoteBarres);
+
+        if (!cancelled && hasRemote) {
+          setManualStore(remoteVoicings);
+          setManualMuteStore(remoteMutes);
+          setManualBarreStore(remoteBarres);
+          setEditStatus("DB에서 코드 편집 데이터를 불러왔습니다.");
+          return;
+        }
+
+        const hasLocal = hasAnyChordState(localVoicings, localMutes, localBarres);
+        if (!cancelled && hasLocal) {
+          setManualStore(localVoicings);
+          setManualMuteStore(localMutes);
+          setManualBarreStore(localBarres);
+          setEditStatus("로컬 코드 데이터를 DB로 옮겼습니다.");
+        }
+
+        if (hasLocal) {
+          await upsertChordManualState({
+            voicings: localVoicings,
+            mutes: localMutes,
+            barres: localBarres
+          });
+        }
+      } catch {
+        if (cancelled) return;
+        setManualStore(localVoicings);
+        setManualMuteStore(localMutes);
+        setManualBarreStore(localBarres);
+        if (hasAnyChordState(localVoicings, localMutes, localBarres)) {
+          setEditStatus("DB 연결 실패로 로컬 코드 데이터를 사용합니다.");
+        }
+      } finally {
+        if (!cancelled) {
+          setStateLoaded(true);
+        }
+      }
+    }
+
+    void loadManualStateFromDb();
+
+    return () => {
+      cancelled = true;
+      if (saveDebounceRef.current != null) {
+        window.clearTimeout(saveDebounceRef.current);
+        saveDebounceRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!stateLoaded) {
+      return;
+    }
+
+    if (saveDebounceRef.current != null) {
+      window.clearTimeout(saveDebounceRef.current);
+    }
+
+    saveDebounceRef.current = window.setTimeout(() => {
+      void upsertChordManualState({
+        voicings: manualStore,
+        mutes: manualMuteStore,
+        barres: manualBarreStore
+      }).catch(() => {
+        // Local data remains as fallback if remote save fails.
+      });
+    }, 250);
+
+    return () => {
+      if (saveDebounceRef.current != null) {
+        window.clearTimeout(saveDebounceRef.current);
+        saveDebounceRef.current = null;
+      }
+    };
+  }, [manualStore, manualMuteStore, manualBarreStore, stateLoaded]);
 
   const selectedType = useMemo(
     () => CHORD_TYPE_DEFS.find((item) => item.id === chordType) ?? CHORD_TYPE_DEFS[0],

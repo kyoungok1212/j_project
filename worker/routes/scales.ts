@@ -1,6 +1,6 @@
 import { decodeCursor, encodeCursor } from "../lib/pagination";
 import { fail, ok } from "../lib/http";
-import { parseIntInRange } from "../lib/utils";
+import { getRequiredHeader, parseIntInRange, parseJson } from "../lib/utils";
 import type { Env } from "../types";
 
 const CHROMATIC = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"] as const;
@@ -109,6 +109,15 @@ interface ScaleCatalogItem {
   mode: string;
   root: string;
   patternPositions: Array<{ position: number; notes: string[]; fretPositions: Array<{ string: number; frets: number[] }> }>;
+}
+
+interface ScaleManualStateRow {
+  user_id: string;
+  patterns_json: string;
+}
+
+interface ScaleManualStatePayload {
+  patterns?: unknown;
 }
 
 function makeScaleCatalog(): ScaleCatalogItem[] {
@@ -311,6 +320,10 @@ export async function handleScales(
   requestId: string,
   pathParts: string[]
 ): Promise<Response> {
+  if (pathParts[0] === "state") {
+    return handleScaleManualState(request, _env, requestId);
+  }
+
   if (request.method !== "GET") {
     return fail(requestId, "VALIDATION_ERROR", "method not allowed", 405);
   }
@@ -366,6 +379,62 @@ export async function handleScales(
       nextCursor: hasNext && last ? encodeCursor({ sortValue: last.id, id: last.id }) : null
     }
   );
+}
+
+function asJsonObject(value: unknown): Record<string, unknown> | null {
+  if (value == null) {
+    return {};
+  }
+  if (typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+  return value as Record<string, unknown>;
+}
+
+async function handleScaleManualState(request: Request, env: Env, requestId: string): Promise<Response> {
+  const userId = getRequiredHeader(request, "x-user-id", requestId);
+  if (userId instanceof Response) return userId;
+
+  if (request.method === "GET") {
+    const row = await env.DB.prepare(
+      `SELECT user_id, patterns_json
+       FROM user_scale_states
+       WHERE user_id = ?
+       LIMIT 1`
+    )
+      .bind(userId)
+      .first<ScaleManualStateRow>();
+
+    if (!row) {
+      return ok({ patterns: {} }, requestId);
+    }
+
+    return ok({ patterns: JSON.parse(row.patterns_json) }, requestId);
+  }
+
+  if (request.method === "PUT") {
+    const body = await parseJson<ScaleManualStatePayload>(request, requestId);
+    if (body instanceof Response) return body;
+
+    const patterns = asJsonObject(body.patterns);
+    if (!patterns) {
+      return fail(requestId, "VALIDATION_ERROR", "patterns must be an object", 400, { field: "patterns" });
+    }
+
+    await env.DB.prepare(
+      `INSERT INTO user_scale_states(user_id, patterns_json, updated_at)
+       VALUES (?, ?, ?)
+       ON CONFLICT(user_id) DO UPDATE SET
+         patterns_json = excluded.patterns_json,
+         updated_at = excluded.updated_at`
+    )
+      .bind(userId, JSON.stringify(patterns), new Date().toISOString())
+      .run();
+
+    return ok({ saved: true }, requestId);
+  }
+
+  return fail(requestId, "VALIDATION_ERROR", "method not allowed", 405);
 }
 
 async function handleScaleDetail(requestId: string, scaleId: string): Promise<Response> {

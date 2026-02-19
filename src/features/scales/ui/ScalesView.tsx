@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { getScaleManualState, upsertScaleManualState } from "../api";
 import { STANDARD_TUNING, buildHighlightSet, noteAt, normalizeScaleNote } from "../service";
 import type { ScalePatternResponse } from "../types";
 import { MetronomeEngine } from "../../metronome/service";
@@ -122,6 +123,17 @@ function readManualStore(): ManualScaleStore {
 function writeManualStore(store: ManualScaleStore): void {
   if (typeof window === "undefined") return;
   window.localStorage.setItem(MANUAL_SCALE_STORE_KEY, JSON.stringify(store));
+}
+
+function asObjectRecord(value: unknown): Record<string, unknown> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+  return value as Record<string, unknown>;
+}
+
+function asManualScaleStore(value: unknown): ManualScaleStore {
+  return asObjectRecord(value) as ManualScaleStore;
 }
 
 function buildManualKey(root: string, mode: string, system: PatternSystem): string {
@@ -354,6 +366,7 @@ export function ScalesView() {
   const [editMode, setEditMode] = useState(false);
   const [seeding, setSeeding] = useState(false);
   const [manualStatus, setManualStatus] = useState("");
+  const [stateLoaded, setStateLoaded] = useState(false);
 
   const [metronomeSettings, setMetronomeSettings] = useState<MetronomeSettings>(() => readMetronomeSettings());
   const [practiceRunning, setPracticeRunning] = useState(false);
@@ -366,6 +379,7 @@ export function ScalesView() {
   const practiceStepRef = useRef(0);
   const practiceSequenceRef = useRef<string[]>([]);
   const practiceOwnMetronomeRef = useRef(false);
+  const saveDebounceRef = useRef<number | null>(null);
   const practiceMetronomeEngine = useMemo(() => new MetronomeEngine(), []);
 
   const [patterns, setPatterns] = useState<ScalePatternResponse[]>([]);
@@ -408,6 +422,79 @@ export function ScalesView() {
   );
 
   useEffect(() => {
+    let cancelled = false;
+
+    async function loadManualStateFromDb(): Promise<void> {
+      const localPatterns = readManualStore();
+
+      try {
+        const remote = await getScaleManualState();
+        const remotePatterns = asManualScaleStore(remote.patterns);
+        const hasRemote = Object.keys(remotePatterns).length > 0;
+
+        if (!cancelled && hasRemote) {
+          setManualStore(remotePatterns);
+          setManualStatus("DB에서 스케일 편집 데이터를 불러왔습니다.");
+          return;
+        }
+
+        const hasLocal = Object.keys(localPatterns).length > 0;
+        if (!cancelled && hasLocal) {
+          setManualStore(localPatterns);
+          setManualStatus("로컬 스케일 데이터를 DB로 옮겼습니다.");
+        }
+
+        if (hasLocal) {
+          await upsertScaleManualState({ patterns: localPatterns });
+        }
+      } catch {
+        if (cancelled) return;
+        setManualStore(localPatterns);
+        if (Object.keys(localPatterns).length > 0) {
+          setManualStatus("DB 연결 실패로 로컬 스케일 데이터를 사용합니다.");
+        }
+      } finally {
+        if (!cancelled) {
+          setStateLoaded(true);
+        }
+      }
+    }
+
+    void loadManualStateFromDb();
+
+    return () => {
+      cancelled = true;
+      if (saveDebounceRef.current != null) {
+        window.clearTimeout(saveDebounceRef.current);
+        saveDebounceRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!stateLoaded) {
+      return;
+    }
+
+    if (saveDebounceRef.current != null) {
+      window.clearTimeout(saveDebounceRef.current);
+    }
+
+    saveDebounceRef.current = window.setTimeout(() => {
+      void upsertScaleManualState({ patterns: manualStore }).catch(() => {
+        // Local cache remains as fallback if remote save fails.
+      });
+    }, 250);
+
+    return () => {
+      if (saveDebounceRef.current != null) {
+        window.clearTimeout(saveDebounceRef.current);
+        saveDebounceRef.current = null;
+      }
+    };
+  }, [manualStore, stateLoaded]);
+
+  useEffect(() => {
     const targets = position === "all" ? systemPositions : [position];
     const result = targets.map((pos) => buildPatternFromManual(manualStore, root, mode, system, pos));
     setPatterns(result);
@@ -436,11 +523,12 @@ export function ScalesView() {
   }, [editMode, selectedPosition, system]);
 
   useEffect(() => {
+    if (!stateLoaded) return;
     if (autoSeedTriedRef.current) return;
     if (Object.keys(manualStore).length > 0) return;
     autoSeedTriedRef.current = true;
     void handleFillDefaultData();
-  }, [manualStore]);
+  }, [manualStore, stateLoaded]);
 
   useEffect(() => {
     function handleMetronomeEvent(event: Event): void {

@@ -1,6 +1,6 @@
 import { decodeCursor, encodeCursor } from "../lib/pagination";
 import { fail, ok } from "../lib/http";
-import { parseIntInRange } from "../lib/utils";
+import { getRequiredHeader, parseIntInRange, parseJson } from "../lib/utils";
 import type { Env } from "../types";
 
 interface ChordRow {
@@ -10,6 +10,19 @@ interface ChordRow {
   root: string;
   tones_json: string;
   fingering_json: string;
+}
+
+interface ChordManualStateRow {
+  user_id: string;
+  voicings_json: string;
+  mutes_json: string;
+  barres_json: string;
+}
+
+interface ChordManualStatePayload {
+  voicings?: unknown;
+  mutes?: unknown;
+  barres?: unknown;
 }
 
 function mapChord(row: ChordRow) {
@@ -29,6 +42,10 @@ export async function handleChords(
   requestId: string,
   pathParts: string[]
 ): Promise<Response> {
+  if (pathParts[0] === "state") {
+    return handleChordManualState(request, env, requestId);
+  }
+
   if (request.method !== "GET") {
     return fail(requestId, "VALIDATION_ERROR", "method not allowed", 405);
   }
@@ -138,3 +155,75 @@ async function handleChordsQuiz(request: Request, env: Env, requestId: string): 
   return ok({ questions }, requestId);
 }
 
+function asJsonObject(value: unknown): Record<string, unknown> | null {
+  if (value == null) {
+    return {};
+  }
+  if (typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+  return value as Record<string, unknown>;
+}
+
+async function handleChordManualState(request: Request, env: Env, requestId: string): Promise<Response> {
+  const userId = getRequiredHeader(request, "x-user-id", requestId);
+  if (userId instanceof Response) return userId;
+
+  if (request.method === "GET") {
+    const row = await env.DB.prepare(
+      `SELECT user_id, voicings_json, mutes_json, barres_json
+       FROM user_chord_states
+       WHERE user_id = ?
+       LIMIT 1`
+    )
+      .bind(userId)
+      .first<ChordManualStateRow>();
+
+    if (!row) {
+      return ok({ voicings: {}, mutes: {}, barres: {} }, requestId);
+    }
+
+    return ok(
+      {
+        voicings: JSON.parse(row.voicings_json),
+        mutes: JSON.parse(row.mutes_json),
+        barres: JSON.parse(row.barres_json)
+      },
+      requestId
+    );
+  }
+
+  if (request.method === "PUT") {
+    const body = await parseJson<ChordManualStatePayload>(request, requestId);
+    if (body instanceof Response) return body;
+
+    const voicings = asJsonObject(body.voicings);
+    if (!voicings) {
+      return fail(requestId, "VALIDATION_ERROR", "voicings must be an object", 400, { field: "voicings" });
+    }
+    const mutes = asJsonObject(body.mutes);
+    if (!mutes) {
+      return fail(requestId, "VALIDATION_ERROR", "mutes must be an object", 400, { field: "mutes" });
+    }
+    const barres = asJsonObject(body.barres);
+    if (!barres) {
+      return fail(requestId, "VALIDATION_ERROR", "barres must be an object", 400, { field: "barres" });
+    }
+
+    await env.DB.prepare(
+      `INSERT INTO user_chord_states(user_id, voicings_json, mutes_json, barres_json, updated_at)
+       VALUES (?, ?, ?, ?, ?)
+       ON CONFLICT(user_id) DO UPDATE SET
+         voicings_json = excluded.voicings_json,
+         mutes_json = excluded.mutes_json,
+         barres_json = excluded.barres_json,
+         updated_at = excluded.updated_at`
+    )
+      .bind(userId, JSON.stringify(voicings), JSON.stringify(mutes), JSON.stringify(barres), new Date().toISOString())
+      .run();
+
+    return ok({ saved: true }, requestId);
+  }
+
+  return fail(requestId, "VALIDATION_ERROR", "method not allowed", 405);
+}

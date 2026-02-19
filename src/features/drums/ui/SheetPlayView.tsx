@@ -1358,7 +1358,7 @@ export function SheetPlayView() {
   const [bpmInput, setBpmInput] = useState(90);
   const [timeSignatureInput, setTimeSignatureInput] = useState<TimeSignatureValue>("4/4");
   const [totalBarsInput, setTotalBarsInput] = useState<number>(4);
-  const [savedSheets, setSavedSheets] = useState<SavedSheet[]>(() => withDefaultSheets([]));
+  const [savedSheets, setSavedSheets] = useState<SavedSheet[]>(() => withDefaultSheets(readSavedSheetsFromLocal()));
   const [sampleOptions, setSampleOptions] = useState<Record<DrumTrackId, DrumSampleOption[]>>(() => emptySampleOptions());
   const [defaultSamples, setDefaultSamples] = useState<DrumTrackSampleMap>({});
   const [globalSamples, setGlobalSamples] = useState<DrumTrackSampleMap>({});

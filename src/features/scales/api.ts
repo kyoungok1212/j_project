@@ -1,5 +1,5 @@
 import { apiRequest } from "../../shared/api/http";
-import type { ScaleListResponse, ScalePatternResponse } from "./types";
+import type { ScaleListResponse, ScalePatternResponse, ScaleManualState } from "./types";
 
 export function getScales(root?: string, mode?: string): Promise<ScaleListResponse> {
   const params = new URLSearchParams();
@@ -22,4 +22,16 @@ export function getScalePattern(
     system
   });
   return apiRequest<ScalePatternResponse>(`/scales/pattern?${params.toString()}`);
+}
+
+export function getScaleManualState(): Promise<ScaleManualState> {
+  return apiRequest<ScaleManualState>("/scales/state", { requireUser: true });
+}
+
+export function upsertScaleManualState(payload: ScaleManualState): Promise<{ saved: true }> {
+  return apiRequest<{ saved: true }>("/scales/state", {
+    method: "PUT",
+    requireUser: true,
+    body: JSON.stringify(payload)
+  });
 }

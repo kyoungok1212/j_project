@@ -25,3 +25,9 @@ export interface ScalePatternResponse {
   tuning: Array<{ string: number; openNote: string }>;
   fretPositions: Array<{ string: number; frets: number[] }>;
 }
+
+export type ScaleManualStore = Record<string, Partial<Record<number, Partial<Record<number, number[]>>>>>;
+
+export interface ScaleManualState {
+  patterns: ScaleManualStore;
+}
