@@ -2242,26 +2242,31 @@ button:disabled {
   }
 
   .sheet-status-controls {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     width: 100%;
     gap: 6px;
   }
 
+  .sheet-status-controls > button,
+  .sheet-status-controls > .sheet-track-toggle,
   .sheet-status-controls > .sheet-note-length-wrap,
   .sheet-status-controls > .sheet-score-mode-meta {
-    grid-column: 1 / -1;
+    width: 100%;
   }
 
   .sheet-note-length-wrap {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .sheet-note-length-buttons {
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    width: 100%;
   }
 
   .sheet-track-toggle {
