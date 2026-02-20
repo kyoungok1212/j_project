@@ -1274,9 +1274,11 @@ button:disabled {
 }
 
 .sheet-status-controls {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+  width: 100%;
 }
 
 .sheet-score-mode-meta {
@@ -1423,6 +1425,10 @@ button:disabled {
 .sheet-saved-sheet-field {
   min-width: 220px;
   flex: 1 1 240px;
+}
+
+.sheet-play-card {
+  position: relative;
 }
 
 .sheet-create-modal-overlay {
@@ -2173,6 +2179,20 @@ button:disabled {
     flex-wrap: wrap;
   }
 
+  .sheet-status-controls {
+    width: 100%;
+    gap: 6px;
+  }
+
+  .sheet-actions-row {
+    align-items: stretch;
+  }
+
+  .sheet-actions-row > .sheet-saved-sheet-field {
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+
   .sheet-score-paper {
     width: 100%;
     padding: 18px 16px 20px;
@@ -2181,6 +2201,10 @@ button:disabled {
 }
 
 @media (max-width: 620px) {
+  .screen {
+    overflow: visible;
+  }
+
   .menu-bar {
     grid-template-columns: 1fr;
   }
@@ -2201,13 +2225,83 @@ button:disabled {
     grid-template-columns: 1fr;
   }
 
+  .sheet-actions-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .sheet-actions-row > .sheet-saved-sheet-field {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+
+  .sheet-actions-row > button {
+    width: 100%;
+  }
+
+  .sheet-status-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .sheet-status-controls > .sheet-note-length-wrap,
+  .sheet-status-controls > .sheet-score-mode-meta {
+    grid-column: 1 / -1;
+  }
+
+  .sheet-note-length-wrap {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sheet-note-length-buttons {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
   .sheet-track-toggle {
+    width: 100%;
+    justify-content: space-between;
     margin-left: 0;
   }
 
   .sheet-score-mode-meta {
     white-space: normal;
     line-height: 1.3;
+  }
+
+  .sheet-play-card.score-mobile-fullscreen {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    margin: 0;
+    border-radius: 0;
+    border: 0;
+    padding:
+      calc(10px + env(safe-area-inset-top))
+      10px
+      calc(10px + env(safe-area-inset-bottom));
+    overflow-y: auto;
+    background:
+      radial-gradient(1200px 800px at 120% -20%, rgba(94, 197, 186, 0.15), transparent 58%),
+      rgba(7, 13, 25, 0.98);
+  }
+
+  .sheet-play-card.score-mobile-fullscreen .sheet-score-view {
+    margin-top: 8px;
+    min-height: calc(100dvh - 140px);
+  }
+
+  .sheet-play-card.score-mobile-fullscreen .sheet-score-paper {
+    width: 100%;
+    min-height: calc(100dvh - 190px);
+    margin: 0;
+    padding: 12px 8px 14px;
   }
 
   .sheet-score-paper {

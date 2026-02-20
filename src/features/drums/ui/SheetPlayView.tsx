@@ -1382,6 +1382,12 @@ export function SheetPlayView() {
   const [, setSheetMessage] = useState("");
   const [showTrackGrid, setShowTrackGrid] = useState(true);
   const [sheetViewMode, setSheetViewMode] = useState<SheetViewMode>("edit");
+  const [isMobileViewport, setIsMobileViewport] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+    return window.innerWidth <= 620;
+  });
   const [beatSelection, setBeatSelection] = useState<BeatSelectionRange | null>(null);
   const [dragAnchor, setDragAnchor] = useState<{ trackIndex: number; step: number } | null>(null);
   const [toastMessage, setToastMessage] = useState("");
@@ -1452,10 +1458,33 @@ export function SheetPlayView() {
   const metronomeSyncBpm = editorSheet?.bpm ?? 0;
   const metronomeSyncTimeSignature = editorSheet?.timeSignature ?? "4/4";
   const metronomeSyncSubdivision = metronomeSettings.subdivision;
+  const isMobileScoreFullscreen = sheetViewMode === "score" && isMobileViewport;
 
   useEffect(() => {
     editorRef.current = editorSheet;
   }, [editorSheet]);
+
+  useEffect(() => {
+    const handleResize = (): void => {
+      setIsMobileViewport(window.innerWidth <= 620);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobileScoreFullscreen) {
+      return;
+    }
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isMobileScoreFullscreen]);
 
   useEffect(() => {
     function handleMetronomeEvent(event: Event): void {
@@ -3833,7 +3862,7 @@ export function SheetPlayView() {
   }, [toastMessage]);
 
   return (
-    <section className="card">
+    <section className={`card sheet-play-card ${isMobileScoreFullscreen ? "score-mobile-fullscreen" : ""}`.trim()}>
       <h2>악보 만들기</h2>
 
       <div className="row sheet-actions-row">
@@ -4227,4 +4256,3 @@ export function SheetPlayView() {
     </section>
   );
 }
-
