@@ -1459,7 +1459,7 @@ export function SheetPlayView() {
   const metronomeSyncBpm = editorSheet?.bpm ?? 0;
   const metronomeSyncTimeSignature = editorSheet?.timeSignature ?? "4/4";
   const metronomeSyncSubdivision = metronomeSettings.subdivision;
-  const isMobileScoreFullscreen = sheetViewMode === "score" && isMobileViewport;
+  const isScoreFullscreen = sheetViewMode === "score";
 
   useEffect(() => {
     editorRef.current = editorSheet;
@@ -1486,7 +1486,7 @@ export function SheetPlayView() {
   }, []);
 
   useEffect(() => {
-    if (!isMobileScoreFullscreen) {
+    if (!isScoreFullscreen) {
       return;
     }
     const previousOverflow = document.body.style.overflow;
@@ -1494,7 +1494,7 @@ export function SheetPlayView() {
     return () => {
       document.body.style.overflow = previousOverflow;
     };
-  }, [isMobileScoreFullscreen]);
+  }, [isScoreFullscreen]);
 
   useEffect(() => {
     function handleMetronomeEvent(event: Event): void {
@@ -3044,8 +3044,6 @@ export function SheetPlayView() {
   }
 
   const totalSteps = editorSheet ? editorSheet.stepsPerBar * editorSheet.totalBars : 0;
-  const scoreBarsPerLine = editorSheet ? resolveScoreBarsPerLine(editorSheet, scorePaperWidth) : 2;
-  const scoreFirstRowBars = resolveScoreFirstRowBars(scoreBarsPerLine);
   const availableInputNoteLengths = INPUT_NOTE_LENGTH_OPTIONS.filter(
     (option) => !editorSheet || editorSheet.stepsPerBar % option.value === 0
   );
@@ -3872,44 +3870,46 @@ export function SheetPlayView() {
   }, [toastMessage]);
 
   return (
-    <section className={`card sheet-play-card ${isMobileScoreFullscreen ? "score-mobile-fullscreen" : ""}`.trim()}>
+    <section className={`card sheet-play-card ${isScoreFullscreen ? "score-fullscreen" : ""}`.trim()}>
       <h2>악보 만들기</h2>
 
-      <div className="row sheet-actions-row">
-        <label className="practice-field sheet-saved-sheet-field">
-          저장된 악보
-          <select value={selectedSheetId} onChange={(e) => setSelectedSheetId(e.target.value)} disabled={savedSheets.length === 0}>
-            {savedSheets.length === 0 ? (
-              <option value="">저장된 악보 없음</option>
-            ) : (
-              savedSheets.map((sheet) => (
-                <option key={sheet.id} value={sheet.id}>
-                  {sheet.title}
-                </option>
-              ))
-            )}
-          </select>
-        </label>
-        <button type="button" onClick={loadSheet} disabled={savedSheets.length === 0}>
-          불러오기
-        </button>
-        <button type="button" onClick={openEditModal} disabled={!editorSheet}>
-          수정
-        </button>
-        <button type="button" onClick={() => setShowCreateModal(true)}>
-          만들기
-        </button>
-        <button type="button" onClick={openGpImportPicker}>
-          GP 불러오기
-        </button>
-        <input
-          ref={gpFileInputRef}
-          type="file"
-          accept={GP_FILE_ACCEPT}
-          onChange={handleGpFileInputChange}
-          hidden
-        />
-      </div>
+      {sheetViewMode === "edit" ? (
+        <div className="row sheet-actions-row">
+          <label className="practice-field sheet-saved-sheet-field">
+            저장된 악보
+            <select value={selectedSheetId} onChange={(e) => setSelectedSheetId(e.target.value)} disabled={savedSheets.length === 0}>
+              {savedSheets.length === 0 ? (
+                <option value="">저장된 악보 없음</option>
+              ) : (
+                savedSheets.map((sheet) => (
+                  <option key={sheet.id} value={sheet.id}>
+                    {sheet.title}
+                  </option>
+                ))
+              )}
+            </select>
+          </label>
+          <button type="button" onClick={loadSheet} disabled={savedSheets.length === 0}>
+            불러오기
+          </button>
+          <button type="button" onClick={openEditModal} disabled={!editorSheet}>
+            수정
+          </button>
+          <button type="button" onClick={() => setShowCreateModal(true)}>
+            만들기
+          </button>
+          <button type="button" onClick={openGpImportPicker}>
+            GP 불러오기
+          </button>
+          <input
+            ref={gpFileInputRef}
+            type="file"
+            accept={GP_FILE_ACCEPT}
+            onChange={handleGpFileInputChange}
+            hidden
+          />
+        </div>
+      ) : null}
 
       {editorSheet ? (
         <div className="sheet-status-row">
@@ -3982,23 +3982,9 @@ export function SheetPlayView() {
               </>
             ) : (
               <>
-                <button
-                  type="button"
-                  className={`practice-run-btn ${playbackActive ? "practice-stop" : ""}`}
-                  onClick={togglePlayback}
-                  aria-label={playbackActive ? "재생 정지" : "재생 시작"}
-                >
-                  {playbackActive ? <span className="practice-stop-icon" aria-hidden="true">■</span> : <span className="practice-run-icon" aria-hidden="true">▶</span>}
-                </button>
-                <button type="button" onClick={movePlaybackCursorToStart}>
-                  처음으로
-                </button>
                 <button type="button" onClick={() => setSheetViewMode("edit")}>
                   편집으로
                 </button>
-                <span className="sheet-score-mode-meta">
-                  {editorSheet.title} · {editorSheet.bpm} BPM · {editorSheet.timeSignature} · 첫줄 {scoreFirstRowBars} / 이후 {scoreBarsPerLine}마디
-                </span>
               </>
             )}
           </div>
