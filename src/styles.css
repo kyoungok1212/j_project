@@ -2160,11 +2160,66 @@ button:disabled {
     padding: 12px;
   }
 
+  .practice-mode-bar {
+    max-width: none;
+  }
+
+  .display-toggle {
+    flex-wrap: wrap;
+    padding-left: 0;
+  }
+
+  .option-cluster {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .position-controls,
+  .practice-control-group {
+    width: 100%;
+  }
+
+  .practice-control-group {
+    flex-wrap: wrap;
+  }
+
   .filter-row,
   .position-row,
   .practice-controls {
     grid-template-columns: 1fr;
     row-gap: 6px;
+  }
+
+  .drum-preset-row {
+    grid-template-columns: 1fr;
+  }
+
+  .drum-preset-save-btn {
+    width: 100%;
+  }
+
+  .drum-grid-scroll {
+    overflow-x: auto;
+    padding: 6px;
+  }
+
+  .drum-machine-grid {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .drum-step-row {
+    grid-template-columns: 96px repeat(var(--drum-step-count, 16), minmax(18px, 1fr));
+  }
+
+  .drum-track-label {
+    white-space: normal;
+    line-height: 1.1;
+  }
+
+  .sheet-maker-row {
+    grid-template-columns: 92px repeat(var(--sheet-step-count, 16), minmax(14px, 1fr));
   }
 
   .sheet-builder-form {
@@ -2201,6 +2256,13 @@ button:disabled {
 }
 
 @media (max-width: 620px) {
+  .app-shell {
+    padding:
+      calc(10px + env(safe-area-inset-top))
+      8px
+      calc(20px + env(safe-area-inset-bottom));
+  }
+
   .screen {
     overflow: visible;
   }
@@ -2215,6 +2277,162 @@ button:disabled {
 
   .title {
     line-height: 1.08;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .row {
+    gap: 8px;
+  }
+
+  .row > input,
+  .row > select,
+  .row > textarea {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .row > button {
+    flex: 1 1 calc(50% - 4px);
+  }
+
+  .filter-label,
+  .position-label,
+  .practice-row-label,
+  .cluster-label {
+    white-space: normal;
+    font-size: 0.7rem;
+  }
+
+  .display-toggle {
+    width: 100%;
+    gap: 4px;
+  }
+
+  .display-toggle .option-btn {
+    flex: 1 1 calc(50% - 2px);
+  }
+
+  .option-strip {
+    gap: 5px;
+  }
+
+  .option-btn,
+  .position-btn {
+    min-height: 30px;
+    padding: 4px 10px;
+    font-size: 0.74rem;
+  }
+
+  .practice-field {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .practice-run-btn {
+    width: 100%;
+  }
+
+  .drum-grid-scroll {
+    padding: 5px;
+  }
+
+  .drum-step-row {
+    gap: 3px;
+    grid-template-columns: 82px repeat(var(--drum-step-count, 16), minmax(16px, 1fr));
+  }
+
+  .drum-track-head {
+    font-size: 0.66rem;
+  }
+
+  .drum-track-label {
+    font-size: 0.62rem;
+  }
+
+  .drum-step-head,
+  .drum-step-btn {
+    min-height: 20px;
+  }
+
+  .drum-settings-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    align-items: start;
+  }
+
+  .drum-settings-track {
+    grid-column: 1 / -1;
+  }
+
+  .drum-settings-select {
+    grid-column: 1 / 2;
+    min-height: 32px;
+  }
+
+  .drum-settings-preview-btn {
+    grid-column: 2 / 3;
+    min-width: 42px;
+    min-height: 32px;
+  }
+
+  .sheet-maker-row {
+    grid-template-columns: 78px repeat(var(--sheet-step-count, 16), minmax(12px, 1fr));
+  }
+
+  .sheet-maker-track-head,
+  .sheet-maker-track-control {
+    border-radius: 4px;
+    padding: 1px 2px;
+  }
+
+  .sheet-maker-track-label {
+    font-size: 0.6rem;
+  }
+
+  .fretboard {
+    min-width: 100%;
+    table-layout: fixed;
+  }
+
+  .fretboard th,
+  .fretboard td {
+    width: auto;
+    height: 26px;
+    padding: 1px;
+  }
+
+  .fretboard thead th {
+    font-size: 0.56rem;
+  }
+
+  .string-label {
+    min-width: 34px;
+    width: 34px;
+    font-size: 0.6rem;
+  }
+
+  .note-dot {
+    width: 16px;
+    height: 16px;
+    font-size: 0.54rem;
+  }
+
+  .note-dot.open {
+    min-width: 18px;
+    font-size: 0.54rem;
+    padding: 1px 2px;
+  }
+
+  .note-dot.mute {
+    font-size: 0.76rem;
+  }
+
+  .barre-mark {
+    width: 10px;
   }
 
   .sheet-builder-form {
