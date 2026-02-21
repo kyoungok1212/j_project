@@ -2272,6 +2272,68 @@ button:disabled {
     padding: 18px 16px 20px;
   }
 
+  .sheet-play-card.score-mobile-fullscreen {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    margin: 0;
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 100dvh;
+    height: 100dvh;
+    border-radius: 0;
+    border: 0;
+    padding:
+      calc(10px + env(safe-area-inset-top))
+      10px
+      calc(10px + env(safe-area-inset-bottom));
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background:
+      radial-gradient(1200px 800px at 120% -20%, rgba(94, 197, 186, 0.15), transparent 58%),
+      rgba(7, 13, 25, 0.98);
+  }
+
+  .sheet-play-card.score-mobile-fullscreen > h2 {
+    margin: 0 0 8px;
+    flex: 0 0 auto;
+  }
+
+  .sheet-play-card.score-mobile-fullscreen .sheet-status-row {
+    margin-top: 0;
+    margin-bottom: 6px;
+    flex: 0 0 auto;
+  }
+
+  .sheet-play-card.score-mobile-fullscreen .sheet-status-controls {
+    gap: 6px;
+  }
+
+  .sheet-play-card.score-mobile-fullscreen .sheet-score-mode-meta {
+    display: none;
+  }
+
+  .sheet-play-card.score-mobile-fullscreen .sheet-score-view {
+    margin-top: 0;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sheet-play-card.score-mobile-fullscreen .sheet-score-paper {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 12px 8px 14px;
+  }
+
+  .sheet-play-card.score-mobile-fullscreen .sheet-score-notation-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
 }
 
 @media (max-width: 620px) {
@@ -2517,33 +2579,15 @@ button:disabled {
     line-height: 1.3;
   }
 
-  .sheet-play-card.score-mobile-fullscreen {
-    position: fixed;
-    inset: 0;
-    z-index: 90;
-    margin: 0;
-    border-radius: 0;
-    border: 0;
-    padding:
-      calc(10px + env(safe-area-inset-top))
-      10px
-      calc(10px + env(safe-area-inset-bottom));
-    overflow-y: auto;
-    background:
-      radial-gradient(1200px 800px at 120% -20%, rgba(94, 197, 186, 0.15), transparent 58%),
-      rgba(7, 13, 25, 0.98);
-  }
-
   .sheet-play-card.score-mobile-fullscreen .sheet-score-view {
-    margin-top: 8px;
-    min-height: calc(100dvh - 140px);
+    margin-top: 0;
   }
 
   .sheet-play-card.score-mobile-fullscreen .sheet-score-paper {
     width: 100%;
-    min-height: calc(100dvh - 190px);
+    min-height: 100%;
     margin: 0;
-    padding: 12px 8px 14px;
+    padding: 10px 6px 12px;
   }
 
   .sheet-score-paper {

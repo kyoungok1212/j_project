@@ -56,6 +56,7 @@ const SCORE_FIRST_ROW_SYMBOL_WIDTH = 76;
 const SCORE_RIGHT_SAFE_GUTTER = 28;
 const SCORE_NOTE_FILL = "rgba(24, 30, 40, 0.96)";
 const SCORE_NOTE_STROKE = "rgba(22, 28, 38, 0.92)";
+const MOBILE_SCORE_BREAKPOINT = 860;
 
 type DrumTrackId = (typeof TRACKS)[number]["id"];
 type DrumPattern = Record<DrumTrackId, boolean[]>;
@@ -1386,7 +1387,7 @@ export function SheetPlayView() {
     if (typeof window === "undefined") {
       return false;
     }
-    return window.innerWidth <= 620;
+    return window.matchMedia(`(max-width: ${MOBILE_SCORE_BREAKPOINT}px)`).matches;
   });
   const [beatSelection, setBeatSelection] = useState<BeatSelectionRange | null>(null);
   const [dragAnchor, setDragAnchor] = useState<{ trackIndex: number; step: number } | null>(null);
@@ -1465,13 +1466,22 @@ export function SheetPlayView() {
   }, [editorSheet]);
 
   useEffect(() => {
-    const handleResize = (): void => {
-      setIsMobileViewport(window.innerWidth <= 620);
+    const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_SCORE_BREAKPOINT}px)`);
+    const handleViewportChange = (): void => {
+      setIsMobileViewport(mediaQuery.matches);
     };
-    handleResize();
-    window.addEventListener("resize", handleResize);
+    handleViewportChange();
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", handleViewportChange);
+      return () => {
+        mediaQuery.removeEventListener("change", handleViewportChange);
+      };
+    }
+
+    window.addEventListener("resize", handleViewportChange);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleViewportChange);
     };
   }, []);
 
@@ -3431,9 +3441,9 @@ export function SheetPlayView() {
       rafId = window.requestAnimationFrame(() => {
         try {
           surface.replaceChildren();
-          const paperWidth = Math.max(360, scorePaperWidth || 0);
+          const paperWidth = Math.max(isMobileViewport ? 280 : 360, scorePaperWidth || 0);
           const notationWidth = Math.max(
-            SCORE_NOTATION_MIN_WIDTH,
+            isMobileViewport ? 300 : SCORE_NOTATION_MIN_WIDTH,
             paperWidth
           );
           const barsPerLine = resolveScoreBarsPerLine(editorSheet, paperWidth);
@@ -3604,7 +3614,7 @@ export function SheetPlayView() {
         window.cancelAnimationFrame(rafId);
       }
     };
-  }, [sheetViewMode, editorSheet, totalSteps, scorePaperWidth, noteLengthOverrides]);
+  }, [sheetViewMode, editorSheet, totalSteps, scorePaperWidth, noteLengthOverrides, isMobileViewport]);
 
   useEffect(() => {
     const surface = notationSurfaceRef.current;
