@@ -2411,6 +2411,20 @@ button:disabled {
     gap: 6px;
   }
 
+  .sheet-play-card.score-fullscreen .sheet-status-controls.score-mode {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    margin-left: 0;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .sheet-play-card.score-fullscreen .sheet-status-controls.score-mode > button {
+    width: 100%;
+    min-width: 0;
+  }
+
   .sheet-play-card.score-fullscreen .sheet-score-mode-meta {
     display: none;
   }
@@ -2671,6 +2685,20 @@ button:disabled {
   .sheet-status-controls > .sheet-note-length-wrap,
   .sheet-status-controls > .sheet-score-mode-meta {
     width: 100%;
+  }
+
+  .sheet-play-card.score-fullscreen .sheet-status-controls.score-mode {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    margin-left: 0;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .sheet-play-card.score-fullscreen .sheet-status-controls.score-mode > button {
+    width: 100%;
+    min-width: 0;
   }
 
   .sheet-note-length-wrap {
