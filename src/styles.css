@@ -1429,6 +1429,10 @@ button:disabled {
 
 .sheet-play-card {
   position: relative;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .sheet-create-modal-overlay {
@@ -1466,12 +1470,16 @@ button:disabled {
 
 .sheet-maker-scroll {
   margin-top: 10px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
   border-radius: var(--radius-md);
   border: 1px solid rgba(157, 180, 214, 0.36);
   padding: 8px;
   background: rgba(7, 12, 24, 0.5);
   user-select: none;
+  overscroll-behavior-x: contain;
 }
 
 .sheet-score-view {
