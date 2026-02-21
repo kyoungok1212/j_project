@@ -3913,18 +3913,18 @@ export function SheetPlayView() {
 
       {editorSheet ? (
         <div className="sheet-status-row">
-          <div className="sheet-status-controls">
+          <div className={`sheet-status-controls ${sheetViewMode === "edit" ? "edit-mode" : "score-mode"}`.trim()}>
             {sheetViewMode === "edit" ? (
               <>
                 <button
                   type="button"
-                  className={`practice-run-btn ${playbackActive ? "practice-stop" : ""}`}
+                  className={`practice-run-btn sheet-edit-play-btn ${playbackActive ? "practice-stop" : ""}`.trim()}
                   onClick={togglePlayback}
                   aria-label={playbackActive ? "재생 정지" : "재생 시작"}
                 >
                   {playbackActive ? <span className="practice-stop-icon" aria-hidden="true">■</span> : <span className="practice-run-icon" aria-hidden="true">▶</span>}
                 </button>
-                <button type="button" onClick={movePlaybackCursorToStart}>
+                <button type="button" className="sheet-edit-start-btn" onClick={movePlaybackCursorToStart}>
                   처음으로
                 </button>
                 <label className="sheet-track-toggle">
@@ -3973,10 +3973,10 @@ export function SheetPlayView() {
                     ))}
                   </div>
                 </div>
-                <button type="button" onClick={saveSheet} disabled={!canSaveSheet}>
+                <button type="button" className="sheet-edit-save-btn" onClick={saveSheet} disabled={!canSaveSheet}>
                   악보 저장
                 </button>
-                <button type="button" onClick={() => setSheetViewMode("score")}>
+                <button type="button" className="sheet-edit-score-btn" onClick={() => setSheetViewMode("score")}>
                   악보 보기
                 </button>
               </>

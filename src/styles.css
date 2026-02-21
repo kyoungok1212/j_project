@@ -2319,6 +2319,30 @@ button:disabled {
     gap: 6px;
   }
 
+  .sheet-status-controls.edit-mode {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .sheet-status-controls.edit-mode .sheet-edit-play-btn,
+  .sheet-status-controls.edit-mode .sheet-edit-start-btn,
+  .sheet-status-controls.edit-mode .sheet-edit-save-btn,
+  .sheet-status-controls.edit-mode .sheet-edit-score-btn {
+    width: 100%;
+  }
+
+  .sheet-status-controls.edit-mode .sheet-track-toggle,
+  .sheet-status-controls.edit-mode .sheet-note-length-wrap {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .sheet-status-controls.edit-mode .sheet-track-toggle {
+    justify-content: space-between;
+  }
+
   .sheet-actions-row {
     align-items: stretch;
   }
@@ -2607,6 +2631,23 @@ button:disabled {
     align-items: stretch;
     width: 100%;
     gap: 6px;
+  }
+
+  .sheet-status-controls.edit-mode {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .sheet-status-controls.edit-mode > button {
+    width: 100%;
+  }
+
+  .sheet-status-controls.edit-mode .sheet-track-toggle,
+  .sheet-status-controls.edit-mode .sheet-note-length-wrap {
+    grid-column: 1 / -1;
+    width: 100%;
   }
 
   .sheet-status-controls > button,
