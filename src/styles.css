@@ -38,6 +38,7 @@ body,
 
 body {
   margin: 0;
+  overflow-x: hidden;
   color: var(--ink);
   font-family: "Noto Sans KR", "Sora", sans-serif;
   background:
@@ -614,6 +615,9 @@ body {
 }
 
 .screen {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   border-radius: var(--radius-lg);
   border: 0;
   background:
@@ -662,6 +666,9 @@ body {
 }
 
 .screen-body {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   padding: 0;
 }
 
@@ -680,6 +687,8 @@ body {
 }
 
 .card {
+  min-width: 0;
+  max-width: 100%;
   border-radius: calc(var(--radius-lg) - 4px);
   border: 1px solid rgba(151, 174, 212, 0.32);
   background:
@@ -1474,6 +1483,7 @@ button:disabled {
   max-width: 100%;
   min-width: 0;
   overflow-x: auto;
+  overflow-y: hidden;
   border-radius: var(--radius-md);
   border: 1px solid rgba(157, 180, 214, 0.36);
   padding: 8px;
@@ -1533,8 +1543,9 @@ button:disabled {
 }
 
 .sheet-maker-grid {
-  width: 100%;
-  min-width: 0;
+  width: max-content;
+  max-width: none;
+  min-width: 100%;
   display: grid;
   gap: 1px;
 }
