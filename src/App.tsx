@@ -115,16 +115,16 @@ export function App() {
           <div className="hero-title-row">
             <div className="hero-title-copy">
               <h1 className="title">J.Guitar and Drum Practice App</h1>
-              <p className="eyebrow">FOR TEAM.PENTATONIC</p>
+              <button
+                type="button"
+                className={`eyebrow-toggle ${supervisorUnlocked ? "active" : ""}`.trim()}
+                onClick={handleSupervisorButtonClick}
+                aria-pressed={supervisorUnlocked}
+                title={supervisorUnlocked ? "Supervisor unlocked (click again to lock)" : "Supervisor lock"}
+              >
+                FOR TEAM.PENTATONIC
+              </button>
             </div>
-            <button
-              type="button"
-              className={`sv-toggle-btn ${supervisorUnlocked ? "active" : ""}`}
-              onClick={handleSupervisorButtonClick}
-              title={supervisorUnlocked ? "SV 잠금 해제됨 (클릭 시 잠금)" : "SV 잠금"}
-            >
-              SV
-            </button>
           </div>
         </div>
       </header>
@@ -177,3 +177,4 @@ export function App() {
     </main>
   );
 }
+

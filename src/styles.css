@@ -127,7 +127,7 @@ body {
 .hero-title-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
   min-width: 0;
 }
@@ -139,32 +139,41 @@ body {
   min-width: 0;
 }
 
-.sv-toggle-btn {
-  min-height: 30px;
-  min-width: 42px;
-  padding: 0 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(169, 191, 227, 0.44);
-  background: linear-gradient(180deg, rgba(32, 46, 72, 0.9), rgba(16, 27, 45, 0.9));
-  color: rgba(236, 244, 255, 0.9);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-.sv-toggle-btn.active {
-  background: linear-gradient(180deg, rgba(248, 216, 161, 0.98), rgba(233, 188, 115, 0.94));
-  border-color: rgba(255, 234, 193, 0.94);
-  color: #1a2230;
-}
-
-.eyebrow {
+.eyebrow-toggle {
   margin: 0;
+  padding: 2px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-size: 0.73rem;
   color: var(--accent-2);
   font-family: "JetBrains Mono", monospace;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: transform 90ms ease, background-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
+}
+
+.eyebrow-toggle:hover {
+  background: rgba(94, 197, 186, 0.1);
+  color: rgba(146, 232, 222, 0.96);
+}
+
+.eyebrow-toggle:active {
+  transform: translateY(1px);
+  background: rgba(94, 197, 186, 0.14);
+  box-shadow: inset 0 1px 2px rgba(5, 12, 23, 0.44);
+}
+
+.eyebrow-toggle.active {
+  color: rgba(245, 206, 133, 0.98);
+  background: rgba(239, 192, 116, 0.16);
+}
+
+.eyebrow-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .title {
