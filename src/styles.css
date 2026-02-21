@@ -1482,7 +1482,7 @@ button:disabled {
 .sheet-play-card.score-fullscreen .sheet-status-controls {
   width: auto;
   margin-left: auto;
-  gap: 0;
+  gap: 6px;
 }
 
 .sheet-play-card.score-fullscreen .sheet-score-view {

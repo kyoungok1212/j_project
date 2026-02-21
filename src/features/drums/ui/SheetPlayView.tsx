@@ -3982,6 +3982,16 @@ export function SheetPlayView() {
               </>
             ) : (
               <>
+                {isMobileViewport ? (
+                  <button
+                    type="button"
+                    className={`practice-run-btn ${playbackActive ? "practice-stop" : ""}`.trim()}
+                    onClick={togglePlayback}
+                    aria-label={playbackActive ? "재생 정지" : "재생 시작"}
+                  >
+                    {playbackActive ? <span className="practice-stop-icon" aria-hidden="true">■</span> : <span className="practice-run-icon" aria-hidden="true">▶</span>}
+                  </button>
+                ) : null}
                 <button type="button" onClick={() => setSheetViewMode("edit")}>
                   편집으로
                 </button>
