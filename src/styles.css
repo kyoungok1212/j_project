@@ -2232,17 +2232,21 @@ button:disabled {
     align-items: center;
     flex-wrap: nowrap;
     gap: 8px;
+    width: 100%;
   }
 
   .hero-title-copy {
     width: 100%;
     min-width: 0;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: nowrap;
     gap: 8px;
   }
 
   .title {
+    flex: 1 1 auto;
+    min-width: 0;
     white-space: nowrap;
     text-wrap: nowrap;
     overflow: hidden;
@@ -2500,6 +2504,8 @@ button:disabled {
   }
 
   .title {
+    flex: 1 1 auto;
+    min-width: 0;
     line-height: 1.05;
     font-size: 0.8rem;
     white-space: nowrap;
@@ -2507,10 +2513,13 @@ button:disabled {
   }
 
   .hero-title-copy {
+    width: 100%;
+    justify-content: space-between;
     gap: 6px;
   }
 
   .eyebrow-toggle {
+    flex: 0 0 auto;
     font-size: 0.52rem;
     letter-spacing: 0.08em;
     padding: 1px 4px;
