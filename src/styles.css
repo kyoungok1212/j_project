@@ -1290,6 +1290,22 @@ button:disabled {
   width: 100%;
 }
 
+.sheet-status-controls.score-mode {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+  margin-left: auto;
+  gap: 6px;
+}
+
+.sheet-status-controls.score-mode > button {
+  width: auto;
+  min-width: 88px;
+  flex: 0 0 auto;
+}
+
 .sheet-score-mode-meta {
   font-size: 0.78rem;
   color: rgba(214, 228, 248, 0.84);
